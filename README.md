@@ -1,5 +1,5 @@
 # chat-app
-Chat application where you can chat with other people of the same room specified. The application was developed using Node.js and socket.io and is available at [merligus-chat-app.herokuapp.com](https://merligus-chat-app.herokuapp.com). You can run as developer you must:
+Chat application where you can chat with other people of the same room specified. The application was developed using Node.js and socket.io and is available at [merligus-chat-app.herokuapp.com](https://merligus-chat-app.herokuapp.com). In order to run as developer you must:
 
 1. Clone the repository
    ```sh
