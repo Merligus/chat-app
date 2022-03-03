@@ -13,7 +13,7 @@ const locationMessageTemplate = document.querySelector("#location-message-templa
 const sidebarTemplate = document.querySelector("#sidebar-template").innerHTML
 
 // Options
-const {username, room} = Qs.parse(location.search, {ignoreQueryPrefix: true})
+const {username, room, roomSelect} = Qs.parse(location.search, {ignoreQueryPrefix: true})
 
 const autoscroll = () =>
 {
@@ -152,7 +152,7 @@ $sendLocationButton.addEventListener
 socket.emit
 (
     "join", 
-    {username, room},
+    {username, room, roomSelect},
     (error) =>
     {
         if (error)

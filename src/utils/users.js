@@ -1,6 +1,6 @@
-const users = []
+const { addRoom, removeRoom } = require("./rooms")
 
-// addUser, removeUser, getUser, getUsersInRoom
+const users = []
 
 const addUser = ({id, username, room}) =>
 {
@@ -39,6 +39,10 @@ const addUser = ({id, username, room}) =>
     // Store user
     const user = {id, username, room}
     users.push(user)
+
+    // Store room
+    addRoom(room)
+
     return {user}
 }
 
@@ -48,7 +52,10 @@ const removeUser = (id) =>
 
     if (index !== -1)
     {
-        return users.splice(index, 1)[0]
+        if (getUsersInRoom(users[index].room).length === 1)
+            removeRoom(users[index].room)
+            
+        return users.splice(index, 1)[0].username
     }
 }
 

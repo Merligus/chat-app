@@ -5,6 +5,7 @@ const socketio = require("socket.io")
 const Filter = require("bad-words")
 const {generateMessage, generateLocationMessage} = require("./utils/messages")
 const {addUser, removeUser, getUser, getUsersInRoom} = require("./utils/users")
+const {getRooms} = require("./utils/rooms")
 
 const app = express()
 const server = http.createServer(app)
@@ -23,11 +24,16 @@ io.on
     {
         console.log("New WebSocket connection")
 
+        socket.emit("getRoomOptions", getRooms())
+
         socket.on
         (
             "join",
             (options, callback) =>
             {
+                if (!options.room || options.room.length === 0)
+                    options.room = options.roomSelect
+
                 const {error, user} = addUser({id: socket.id, ...options})
 
                 if (error)

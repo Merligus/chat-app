@@ -15,10 +15,16 @@
                     <label>Display name</label>
                     <input type="text" name="username" placeholder="Username" required>
                     <label>Room</label>
-                    <input type="text" name="room" placeholder="Room" required>
+                    <input type="text" name="room" placeholder="New Room">
+                    <select name="roomSelect">
+                        <option value="global">global</option>
+                    </select>
                     <button>Join</button>
                 </form>
             </div>
         </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/index.js"></script>
     </body>
 </html>
